@@ -1,0 +1,43 @@
+trigger:
+- main
+
+variables:
+  - group: aws
+
+stages:
+- stage: Build
+  displayName: Build image
+  pool:
+    name: 
+  jobs:
+  - job: BuildAndPush
+    displayName: Build
+    pool:
+      name: 
+    steps:
+    - task: Docker@2
+      inputs:
+        command: 'build'
+        repository: $(AWS_ECR_MAGE_URI)
+        Dockerfile: '**/Dockerfile'
+        tags: |
+          $(Build.BuildId)
+
+- stage: push
+  displayName: Build image
+  dependsOn: Build
+  jobs:
+    - job : push
+      displayName: 'Push'
+      pool:
+        name: utb
+      steps:
+      - task: ECRPushImage@1
+        inputs:
+           awsCredentials: 'AWS'
+           AWS_REGION: $(AWS_REGION)
+           imageSource: 'imagename'
+           sourceImageTag: $(Build.BuildId)
+           pushTag: $(Build.BuildId)
+           sourceImageName: $(AWS_ECR_MAGE_URI)
+           repositoryName: $(AWS_ECR_REPOSITORY_NAME)
