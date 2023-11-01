@@ -8,12 +8,12 @@ stages:
 - stage: Build
   displayName: Build image
   pool:
-    name: utb
+    name: Default
   jobs:
   - job: BuildAndPush
     displayName: Build
     pool:
-      name: Azure
+      name: utb
     steps:
     - task: Docker@2
       inputs:
