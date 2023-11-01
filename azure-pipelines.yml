@@ -8,7 +8,7 @@ stages:
 - stage: Build
   displayName: Build image
   pool:
-    name: 
+    name: utb
   jobs:
   - job: BuildAndPush
     displayName: Build
