@@ -30,7 +30,7 @@ stages:
     - job : push
       displayName: 'Push'
       pool:
-        name: utb
+        name: Default
       steps:
       - task: ECRPushImage@1
         inputs:
