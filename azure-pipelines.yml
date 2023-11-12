@@ -35,7 +35,7 @@ stages:
       - task: ECRPushImage@1
         inputs:
            awsCredentials: 'AWS'
-           AWS_REGION: $(AWS_REGION)
+           AWS_REGION: 'us-east-1'
            imageSource: 'imagename'
            sourceImageTag: $(Build.BuildId)
            pushTag: $(Build.BuildId)
