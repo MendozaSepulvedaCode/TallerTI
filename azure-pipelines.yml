@@ -13,7 +13,7 @@ stages:
   - job: BuildAndPush
     displayName: Build
     pool:
-      name: utb
+      name: Default
     steps:
     - task: Docker@2
       inputs:
