@@ -21,7 +21,7 @@ stages:
       displayName: 'Check AWS_REGION'
       env:
         AZUREPS_DISABLE_PROFILE_LOADING: 1
-        powershell: [ '7.0.6' ]
+      powershell: [ '7.0.6' ]
     - task: Docker@2
       inputs:
         command: 'build'
@@ -36,7 +36,7 @@ stages:
   displayName: Build image
   dependsOn: Build
   jobs:
-    - job : push
+    - job: push
       displayName: 'Push'
       pool:
         name: Default
