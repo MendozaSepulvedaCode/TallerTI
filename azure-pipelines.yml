@@ -15,8 +15,9 @@ stages:
     pool:
       name: Default
     steps:
-    - script: echo "AWS_REGION: $(AWS_REGION)"
-    displayName: 'Check AWS_REGION'
+    - script: |
+        echo "AWS_REGION: $(AWS_REGION)"
+      displayName: 'Check AWS_REGION'
     - task: Docker@2
       inputs:
         command: 'build'
