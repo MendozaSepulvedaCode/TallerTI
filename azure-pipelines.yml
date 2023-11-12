@@ -19,7 +19,7 @@ stages:
         echo "AWS_REGION: $(AWS_REGION)"
       displayName: 'Check AWS_REGION'
       env:
-        POWERSHELL_DONT_LOAD_PROFILES: true
+        POWERSHELL_VERSION: '7.0.x'
     - task: Docker@2
       inputs:
         command: 'build'
