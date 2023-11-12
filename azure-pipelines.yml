@@ -22,6 +22,8 @@ stages:
         Dockerfile: '**/Dockerfile'
         tags: |
           $(Build.BuildId)
+      env:
+        AWS_REGION: $(AWS_REGION)
 
 - stage: push
   displayName: Build image
