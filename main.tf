@@ -36,7 +36,7 @@ resource "aws_ecs_task_definition" "ti_actividad" {
   [
     {
       "name": "ti_primera",
-      "image": "891222389983.dkr.ecr.us-east-2.amazonaws.com/utb:${var.imagebuild}",
+      "image": "891222389983.dkr.ecr.us-east-1.amazonaws.com/utb:${var.imagebuild}",
       "essential": true,
       "portMappings": [
         {
