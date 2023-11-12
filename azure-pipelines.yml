@@ -3,7 +3,11 @@ trigger:
 
 variables:
   - group: aws
+<<<<<<< HEAD
   
+=======
+
+>>>>>>> 037b4ef8fe60c48cc52c9cbcb7313efa50d3b06b
 stages:
 - stage: Build
   displayName: Build image
