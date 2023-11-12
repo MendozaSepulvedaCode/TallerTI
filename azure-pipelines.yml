@@ -16,10 +16,12 @@ stages:
       name: Default
     steps:
     - script: |
-        echo "AWS_REGION: $(AWS_REGION)"
+        $region = Get-AzContext | Select-Object -ExpandProperty 'Location'
+        echo "AWS_REGION: $region"
       displayName: 'Check AWS_REGION'
       env:
-        POWERSHELL_VERSION: '7.0.x'
+        AZUREPS_DISABLE_PROFILE_LOADING: 1
+        powershell: [ '7.0.6' ]
     - task: Docker@2
       inputs:
         command: 'build'
