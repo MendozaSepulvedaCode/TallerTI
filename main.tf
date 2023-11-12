@@ -116,7 +116,7 @@ resource "aws_lb_listener" "esc_ti" {
 
 
 resource "aws_ecs_service" "ecs_service" {
-  name            = ""     # Name the service
+  name            = "ecs-service"     # Name the service
   cluster         = "${aws_ecs_cluster.cluster_disp.id}"   # Reference the created Cluster
   task_definition = "${aws_ecs_task_definition.ti_actividad.arn}" # Reference the task that the service will spin up
   launch_type     = "FARGATE"
